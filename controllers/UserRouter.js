@@ -23,7 +23,9 @@ UserRouter.get('/readme' , (req, res) => {
 
 
 UserRouter.post('/update' , async (req, res) => { 
-
+   
+   // update profile details 
+   
 	const body = req.body
 	username_new = body["username"]
 	age_new  = body["age"]
@@ -56,6 +58,34 @@ UserRouter.post('/update' , async (req, res) => {
 })
 
 
+UserRouter.post('/getuserstuff' , async (req, res) => { 
+   
+   // update profile details 
+   
+	const body = req.body
+	username_new = body["username"]
+
+	console.log()
+	
+	// first trial started from here 
+	const filter = { username: username_new };
+   
+   
+	
+	
+	
+
+	let my_update = await User.findOne(filter);
+	
+	my_update.name; // 'Jean-Luc Picard'
+	my_update.age; // 59
+	
+	
+	res.json({"message":"Here are your details" , "age" : my_update  })
+
+
+	
+})
 
 
 
