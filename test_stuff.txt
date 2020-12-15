@@ -1,4 +1,13 @@
 
 
 
-{"useremail":"kayd@gmail.com", "password":"butch" , "username":"kobu"}
+
+// creating new account test Postman
+
+{"useremail":"kayd@gmail.com", "password":"butch" , "username":"kobu" , "age" : 39 }
+
+
+
+// updating new account Postman 
+
+{ "username":"kobu" , "age": 49 }

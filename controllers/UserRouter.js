@@ -22,9 +22,37 @@ UserRouter.get('/readme' , (req, res) => {
 
 
 
-UserRouter.post('/update' , (req, res) => { 
-	res.json({"message":"Hello World"})
+UserRouter.post('/update' , async (req, res) => { 
 
+	const body = req.body
+	username_new = body["username"]
+	age_new  = body["age"]
+	console.log(age_new)
+	
+	// first trial started from here 
+	const filter = { username: username_new };
+   //const update = { age: 59 };
+   const update = { age: age_new };
+	
+	// test document created without age we want to see
+	//  if age can be inserted in that space 
+	
+	// await User.create({ username: 'Jean-Luc Picard' });
+	
+	
+
+	// `doc` is the document _after_ `update` was applied because of
+	// `new: true`
+	let my_update = await User.findOneAndUpdate(filter, update, {new: true});
+	
+	my_update.name; // 'Jean-Luc Picard'
+	my_update.age; // 59
+	
+	
+	res.json({"message":"Age is updated" , "age" : my_update  })
+
+
+	
 })
 
 

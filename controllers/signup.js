@@ -50,13 +50,17 @@ SignupRouter.post('/', async (request, response, next) => {
 
 						 const saltRounds = 10
 						 const passwordHash = await bcrypt.hash(body.password, saltRounds)
+						 
+						 
 						 const  useremail = user_email
 						 const  username  =  body["username"]
-
+                   const  age       =  body["age"]
+                   
 						 const user = new User ({
 						 
 						   useremail ,
 							username  ,
+							age,
 							passwordHash
 						 })
 
